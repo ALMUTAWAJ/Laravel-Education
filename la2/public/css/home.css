@@ -1,0 +1,25 @@
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.summary-item {
+    margin: 1rem;
+    padding: 0.5rem;
+    background-color: #09228887;
+    border-radius: 1rem;
+    font-family: cursive;
+    font-weight: 700;
+    width: 18.5rem;
+}
+
+h2{
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+
+.res{
+color:antiquewhite;
+}
+

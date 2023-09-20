@@ -1,0 +1,15 @@
+form{
+    width:20rem;
+    height: 21rem;
+    align-self: center;
+    margin-top: 2rem;
+    padding: 0px;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    border-radius: 5rem;
+}

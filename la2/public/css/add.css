@@ -1,0 +1,97 @@
+.add-form {
+background-color: #09228887;
+width: 25rem;
+height: 30rem;
+border-radius: 2rem;
+align-self: center;
+margin-bottom: 5rem;
+font-size: 1rem;
+margin-top: 2.5rem;
+}
+
+.addMore{
+    height:1.5rem;
+    width:5rem;
+    padding: 0;
+    font-size:0.8rem;
+}
+
+
+.inputField, input
+{
+    height: 1.5rem;
+    width: 18rem;
+    border-radius: 0.5rem;
+}
+.inputField{
+    margin: 3rem;
+}
+
+select
+{
+    border-radius: 0.5rem;
+    width: 5rem;
+    height:1.5rem;
+}
+
+input,select
+{
+    border: none;
+    font-family: Cambria math;
+    font-weight: bold;
+    padding-left: 0.7rem;
+    margin-top: 0.35rem;
+}
+
+input:focus{
+    outline:none; /*to remove the focus when the user types in the field*/
+}
+
+label
+{
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.add, button
+{
+    padding: 0.25rem 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.add
+{
+    margin-top: 4rem;
+}
+
+
+
+button:hover{
+    background-color: rgb(231, 151, 151);
+}
+
+input::placeholder{
+    color: rgba(128, 128, 128, 0.626);
+}
+
+
+h2{
+    align-self: center;
+}
+
+main{
+
+display:flex;
+flex-direction: column;
+
+}
+
+.error-message{
+    color: rgb(240, 28, 28);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}

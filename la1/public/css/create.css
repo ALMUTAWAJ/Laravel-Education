@@ -1,0 +1,57 @@
+body
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cf
+{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-image: linear-gradient(to right bottom, rgb(246, 180, 180) , yellow);
+    border-radius: 1rem;
+    display: flex;
+    color:red;
+    width: 25rem;
+    clear: both;
+    height: 15rem;
+    justify-content: center;
+    align-items: center;
+    align-self: center; /*when the container tag is flex you can move this specific item inside it*/
+}
+
+.cf input {
+    width: 100%;
+    height: 1.5rem;
+    clear: both;
+    border-radius: 1rem;
+    border: none;
+  }
+
+  label
+  {
+    cursor: pointer;
+  }
+
+button
+{
+    margin-left: 33.333%;
+    margin-top: 7%;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    width: 5rem;
+    border: none;
+    color:red;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+
+}
+
+button:hover
+{
+    background-image: linear-gradient(to right bottom, rgb(246, 180, 180) , yellow);;
+    cursor: pointer;
+}
+
+  
+ 
