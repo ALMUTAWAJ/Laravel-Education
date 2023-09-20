@@ -39,7 +39,7 @@ class AuthenticationController extends Controller
                 // At least one uppercase, one lowercase, one digit, one special character
             ],
             'password_confirmation'=>"required", 
-            "planHours" => ['required, Integer','max:3','min:2'],
+            "planHours" => ['required', 'Integer','max:140','min:66'],
         // By including the confirmed rule, Laravel will automatically look for a field named password_confirmation in your form. This field should contain the confirmed password entered by the user, and Laravel will compare it with the password field to ensure they match. If they don't match, the validation will fail and an error message will be displayed to the user.
         'username' => 'required|string|regex:/^\w*$/|max:24|unique:users,username', // add username column in the users table in the migration and make it unique(because will be used for the authentication), also add username in the $fillable array in User.php model file
         ],

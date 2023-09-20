@@ -45,7 +45,6 @@ class ProfileController extends Controller
         
        
         $old_password=$request->old_password;
-        $new_password=$request->new_password;
         $ans = false;
         if(trim($old_password)!="")
             $ans = Hash::check($old_password, auth()->user()->password);
