@@ -74,8 +74,8 @@ class ProfileController extends Controller
     $data['password'] = $request->new_password;
     $data['plan_hours'] = $request->plan_hours;
 
-    $username = auth()->user();
-    $updatedFlag = $username->update($data); // creating the user (if successful creation the function create will return true else false) 
+    $user = auth()->user();
+    $updatedFlag = $user->update($data); // creating the user (if successful creation the function create will return true else false) 
 
         if(!$updatedFlag){
             return redirect(route('profile'))->with('State_F','Sorry, your data has not been updated, try again !');
