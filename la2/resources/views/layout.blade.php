@@ -7,7 +7,7 @@
     <title>Home</title>
     <link rel="stylesheet" href={{ url('css/generalStyle.css') }}>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    @vite('resources/css/app.css')
 </head>
 
 <body>

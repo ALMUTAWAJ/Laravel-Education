@@ -1,6 +1,5 @@
 @extends('layout')
 @section('profile')
-    @vite('resources/css/app.css')
     <h1>Edit Profile</h1>
     {{-- The following will show the errors based on the entered data, these errors authomatically generated laravel when you use validate function in the controller. --}}
     <div class="card bg-glass">
