@@ -15,11 +15,11 @@ class ProfileController extends Controller
     function profile()
     {
         $userID = auth()->user()->id;
-        $row = User::where('id',$userID)->first(); // to get the first record 
-         //another way to use the database
-         //$row = DB::table('users')->where('id',$userID)->first(); 
-         //but the returned will be as stdClass so convert it to an array 
-         //$row = (array)$row;
+        $row = User::where('id', $userID)->first(); // to get the first record 
+        //another way to use the database
+        //$row = DB::table('users')->where('id',$userID)->first(); 
+        //but the returned will be as stdClass so convert it to an array 
+        //$row = (array)$row;
         return view('profile', ['userInfo' => $row]);
     }
 
@@ -91,8 +91,8 @@ class ProfileController extends Controller
             $data['profile_image'] = $path; // saving the path in the $data array which will be saved later in the user record
         }
         //dd($request->has('delete_image'));
-        if($request->has('delete_image')){
-            if($request->delete_image=='1'){
+        if ($request->has('delete_image')) {
+            if ($request->delete_image == '1') {
                 Storage::disk('public')->delete(auth()->user()->profile_image);
                 $data['profile_image'] = null;
             }
