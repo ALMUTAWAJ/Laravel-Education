@@ -77,26 +77,33 @@ class ProfileController extends Controller
 
         ); // end of validate function
 
-        // if the photo has been updated 
-
+        // Check if a new profile image file is sent with the request
         if ($request->hasFile('profile_image')) {
-            // if the a file uploaded, delete the previous image and will store new image and its path
+            // If a file is uploaded, delete the previous image (if exists) and store the new image.
+
+            // Check if the user already has a profile image
             if (auth()->user()->profile_image) {
                 // Delete the existing profile image before putting a new one
                 Storage::disk('public')->delete(auth()->user()->profile_image);
             }
+
+            // Get the uploaded image file
             $image = $request->file('profile_image');
-            // Store the uploaded image in the 'public' disk within the 'profile_images' directory
-            $path = $image->store('profile-images', 'public'); // the place where the image will be stored at
-            $data['profile_image'] = $path; // saving the path in the $data array which will be saved later in the user record
+
+            // Store the uploaded image in the 'public' disk within the 'profile-images' directory
+            $path = $image->store('profile-images', 'public');
+
+            // Save the path in the $data array, which will be saved later in the user record
+            $data['profile_image'] = $path;
         }
-        //dd($request->has('delete_image'));
-        if ($request->has('delete_image')) {
-            if ($request->delete_image == '1') {
-                Storage::disk('public')->delete(auth()->user()->profile_image);
-                $data['profile_image'] = null;
-            }
+
+        // Check if the 'delete_image' field is present in the request and set to '1'
+        if ($request->has('delete_image') && $request->input('delete_image') == '1' && auth()->user()->profile_image ) {
+            // If 'delete_image' is set to '1', delete the user's profile image (if exists) and set the image path to null.
+            Storage::disk('public')->delete(auth()->user()->profile_image);
+            $data['profile_image'] = null;
         }
+
 
         $data['name'] = $request->fullname;
         $data['username'] = $request->username;

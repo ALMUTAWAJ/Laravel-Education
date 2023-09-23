@@ -76,8 +76,8 @@
 
                 <div class="mb-3">
                     <!-- Profile Image with label and input -->
-                    <label for="profile-image-input" class="btn btn-warning">Update Image</label>
-                    <label for="delete-profile-image" onclick="toggleDelete()" class="btn btn-danger">Delete</label>
+                    <label id="upload-button" for="profile-image-input" class="btn btn-warning">Update Image</label>
+                    <label id="delete-button" for="delete-profile-image" onclick="toggleDelete()" class="btn btn-danger">Delete</label>
                     <input type="file" class="form-control" id="profile-image-input" name="profile_image"
                         accept="image/*" onchange hidden>
                     <input type="hidden" name='delete_image' id="delete-profile-image" value='0'>

@@ -1,9 +1,10 @@
-
 const profileImage = document.getElementById('profileImage');
 const profileImageLayout = document.getElementById('profileImageLayout');
-
+var deleteDecision = document.getElementById('delete-profile-image');
+var delete_button = document.getElementById('delete-button');
+var old_src = profileImage.src;
 // Profile Picture Input
-const profileImageInput = document.getElementById('profile-image-input');
+const profileImageInput = document.getElementById('profile-image-input'); // the uploaded file
 
 profileImageInput.addEventListener('change', function () {
     const file = profileImageInput.files[0]; // will find the first file input in the page
@@ -26,11 +27,22 @@ The FileReader object has an onload event handler, which is a function that runs
  */
 
 function toggleDelete() {
-    var deleteDecision = document.getElementById('delete-profile-image');
     if (deleteDecision.value === '0') {
         profileImage.src = assetUrl; // assetUrl will be found in profile.blade.php because you can't use asset here
         profileImageLayout.src = assetUrl;
-        deleteDecision.value = '1'; // Reset the value to '0'
+        delete_button.textContent="Don't Delete";
+        deleteDecision.value = '1'; // change the value to '1'
+        profileImageInput.value = null; // to enable re-uploading the image 
+    }
+    else{
+        delete_button.textContent="Delete";
+        deleteDecision.value = '0';
+        profileImage.src = old_src; // returning the previous image
+        profileImageLayout.src = old_src; // returning the previous image
+        profileImageInput.value = old_src; // returning the previous image
+        
     } 
 }
+
+
 
