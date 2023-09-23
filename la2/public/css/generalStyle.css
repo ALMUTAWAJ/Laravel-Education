@@ -11,24 +11,6 @@ header {
     text-align: center;
 }
 
-.image-div{
-    margin-top:-3rem;
-    margin-bottom:0.5rem;
-    margin-left: 1rem;
-    width:5.5rem;
-    height:4rem;
-    border-radius: 7.5rem;
-}
-
-.profile-img{
-    width:5.5rem;
-    height:4rem;
-    border-radius: 7.5rem;
-}
-
-.image-div label{
-    cursor: pointer;
-}
 
 nav {
     background-color: #7F11BE;
@@ -43,14 +25,14 @@ nav a {
 
 .nav_links{
     display:inline-block;
-    margin: 1rem;
+    margin: 0.5rem;
+    padding-bottom: 1rem;
 }
 
 nav a:hover {
     top: 0.5rem;
     color: #a48f8f;
 }
-
 
 
 main {

@@ -13,15 +13,14 @@
 <body>
     <header>
         <h1>Courses Management System</h1>
-        @auth
-        <div class="image-div">
-            <label for="file"><img class=profile-img src="{{ asset('uploads/avatar.svg') }}"
-                    alt="Profile Image"></label>
-        </div>  
-        @endauth
     </header>
     <nav>
         @auth
+            <div class="w-12 h-12 rounded-lg overflow-hidden inline-block relative left-3 top-3.5 mr-3">
+                <img id="profileImageLayout"
+                    src="{{ auth()->user()->profile_image ? asset('storage/' . auth()->user()->profile_image) : url('uploads/avatar.svg') }}"
+                    class="w-12 h-12 rounded-lg object-cover" alt="Profile Image">
+            </div>
             <div class="nav_links"><a href="{{ route('logout') }}">Logout 🔐</a></div>
             <div class="nav_links"><a href="{{ route('profile') }}">Profile</a></div>
             <div class="nav_links"><a href="{{ route('home') }}">Home</a></div>
