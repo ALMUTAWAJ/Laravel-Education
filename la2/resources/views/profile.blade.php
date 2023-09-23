@@ -36,17 +36,53 @@
                 <!-- method used for update data -->
                 @method('PUT')
                 {{-- profile image div --}}
-                <div class="relative w-20 h-20 overflow-hidden bg-gray-100 rounded-2 ml-5 mb-3 dark:bg-gray-600">
-                    <svg class="absolute w-24 h-24 text-gray-400 -left-2" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                            clip-rule="evenodd"></path>
-                    </svg>
+                {{-- Note asset function used only for the files in the public folder --}}
+                <div class="w-24 h-24 rounded-lg overflow-hidden mb-2 ml-4">
+                    <img id="profileImage"
+                        src="{{ auth()->user()->profile_image ? asset('storage/' . auth()->user()->profile_image) : url('uploads/avatar.svg') }}"
+                        class="w-24 h-24 rounded-lg object-cover" alt="Profile Image">
                 </div>
+                <h1>Generated Image Path: {{ 'storage/' . Auth::user()->profile_image }}</h1>
+
+
+                {{-- 
+
+
+                When you save an image in the "public" directory (not the "public" directory inside the "storage" directory),
+                it means that the image is directly accessible via a URL without any additional configuration.
+
+                    Saving Images:
+
+                Security: Placing the images in the "storage" folder can make it more secure since files in
+                the "storage" folder are not directly accessible via the web. This can be beneficial if you want to restrict
+                access to the default avatar.
+
+                Customization: Storing the default avatar in the "storage" folder allows you to easily customize or change
+                it without affecting the public-facing URL. This can be useful if you anticipate needing to update the
+                images.
+
+                Saving Default Avatar in the "Public" Folder:
+
+                Simplicity: Placing the images in the "public" folder simplifies the setup because it's
+                directly accessible via a URL without additional configurations. This can be convenient, especially for
+                small projects or prototypes.
+
+                Performance: Serving the default avatar directly from the "public" folder can be slightly more efficient in
+                terms of server load since it doesn't require routing through the Laravel application.
+
+                In general, if security and the ability to easily update the default avatar are important considerations,
+                storing it in the "storage" folder might be a better choice. However, if simplicity and performance are more
+                important for your project, the "public" folder may be sufficient. --}}
+
+
                 <div class="mb-3">
-                <!-- Profile Image with label and input -->
-                    <label for="profile_image" class="form-label btn btn-warning">Update Image</label>
-                    <input type="file" class="form-control" id="profile_image" name="profile_image" accept="image/*">
+                    <!-- Profile Image with label and input -->
+                    <label for="profile-image-input" class="btn btn-warning">Update Image</label>
+                    <label for="delete-profile-image" onclick="toggleDelete()" class="btn btn-danger">Delete</label>
+                    <input type="file" class="form-control" id="profile-image-input" name="profile_image"
+                        accept="image/*" onchange hidden>
+                    <input type="hidden" name='delete_image' id="delete-profile-image" value='0'>
+
                 </div>
                 <!-- Name -->
                 <div class="mb-3">
@@ -97,8 +133,15 @@
                 </div>
 
 
-                <button class="mb-5" type="submit" class="btn btn-primary">Save Changes</button>
+                <button class="mb-5 btn btn-warning" type="submit">Save Changes</button>
             </form>
         </div>
-        <script src="{{ url('js/show_pass.js') }}"></script>
+        <script src="{{ asset('js/show_pass.js') }}"></script>
+        <script src="{{ asset('js/profile.js') }}"></script>
+
+        <script>
+            var assetUrl = "{{ asset('uploads/avatar.svg') }}";
+        </script>
+
+
     @endsection

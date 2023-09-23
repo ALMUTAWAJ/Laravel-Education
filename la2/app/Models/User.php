@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'username',
         'plan_hours',
+        'profile_image',
     ];
 
     /**
