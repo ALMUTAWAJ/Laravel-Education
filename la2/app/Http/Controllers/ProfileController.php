@@ -12,7 +12,7 @@ class ProfileController extends Controller
 {
     function profile(){
         $userID = auth()->user()->id;
-        $row = User::where('id',$userID)->first(); // to get the first record 
+        $row = User::where('id',$userID)->first(); // to get the first record met the condition id = $userID
          //another way to use the database
          //$row = DB::table('users')->where('id',$userID)->first(); 
          //but the returned will be as stdClass so convert it to an array 
