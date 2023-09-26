@@ -46,3 +46,9 @@ function toggleDelete() {
 
 
 
+
+window.addEventListener('load', function hideButton() { // hiding the delete button in case the profile image is the default avatar
+    if (profileImage.src==assetUrl) {
+        delete_button.style.display = "none"; // Hide the delete button
+    }
+});
