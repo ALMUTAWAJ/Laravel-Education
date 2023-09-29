@@ -4,9 +4,7 @@
 
 <link rel="stylesheet" href="{{url('css/add.css')}}">
 
-    <h2>
-        Enter Course Details: 
-    </h2>
+    <x-title title="Add"></x-title>
 
 <div class="add-form">
     @if(session('added')) {{--If added in the session then the added message will appear.--}}
@@ -65,7 +63,7 @@
         </div>
     
         <div align="center" class="add">
-            <button type="submit">Add</button>
+            <button class="bg-white" type="submit">Add</button>
         </div>
     </form>
     

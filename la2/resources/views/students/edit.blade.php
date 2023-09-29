@@ -4,9 +4,7 @@
 
 <link rel="stylesheet" href="{{url('css/add.css')}}">
 
-    <h2>
-        Edit Course Details: 
-    </h2>
+<x-title title="Update"></x-title>
 
 <div class="add-form">
 
